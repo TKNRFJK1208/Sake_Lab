@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+
+        <link rel="stylesheet" href="./lib/onsenui/css/onsenui.css">
+        <link rel="stylesheet" href="./lib/onsenui/css/onsen-css-components.min.css">
+        <script src="./lib/onsenui/js/onsenui.min.js"></script>
+        <!-- Firebase Authentication -->
+        <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+        <script src="js/form.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        
+        <title>SAKE LAB</title>
+    </head>
+    <body>
+        <ons-page>
+            <div class="content-item bnr">
+                <ons-toolbar class="header">
+                    <div class="center">Sake Lab</div>
+                </ons-toolbar>
+                <!-- <h1 class="page-title">Sake Lab</h1> -->
+                <div class="auth-container">
+                    <form class="auth-form">
+                        <h2>Sign In</h2>
+                        <div class="auth-form-item">
+                            <label>E-mail Address</label>
+                            <input name="email" type="email" id="email" placeholder="email@gmail.com" />
+                        </div>
+                        <div class="auth-form-item">
+                            <label>Password</label>
+                            <input name="password" type="password" id="password" placeholder="Password" />
+                        </div>
+                        <ons_buttton data-src="home.html" class="cta" id="signUp" onclick="signUp()">Sign Up</ons_buttton>
+                        <!-- onclick="navPage(this)" -->
+                        <ons_buttton data-src="home.html" class="cta" id="signIn" onclick="signIn()">Sign In</ons_buttton> 
+                        <!-- onclick="navPage(this)" -->
+                        <ons_buttton data-src="home.html" class="cta" id="signOut" onclick="signOut()">Sign Out</ons_buttton> 
+                    </form>
+                </div>
+            </div>
+        </ons-page>
+
+        
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <script>
+            // When the button is clicked then set the location by the its data-src
+            function navPage(target){
+                window.location = event.target.getAttribute('data-src');
+            }
+        </script>
+    </body>
+</html>

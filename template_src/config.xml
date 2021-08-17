@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.assignment1" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <!-- Set short name as sakelab -->
+    <name short="Sake Lab">Sake Lab</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <!-- whitelist plugin -->
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />     
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+
+    <!-- target is specific to the built android app -->
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <!-- icon -->
+        <!-- this loads the colors.xml resource file making background colour available -->
+        <resource-file src="res/colors.xml" target="/app/src/main/res/values/colors.xml" />
+        <icon foreground="res/icon/android/mdpi_fore.png" density="mdpi" background="@color/background" /> 
+        <icon foreground="res/icon/android/hdpi_fore.png" density="hdpi" background="@color/background" /> 
+        <icon foreground="res/icon/android/xhdpi_fore.png" density="xhdpi" background="@color/background" /> 
+        <icon foreground="res/icon/android/xxhdpi_fore.png" density="xxhdpi" background="@color/background" /> 
+        <icon foreground="res/icon/android/xxxhdpi_fore.png" density="xxxhdpi" background="@color/background" />
+
+        <!-- add splashscreen, note need to add plugin for this to work -->
+        <!-- Install command is "cordova plugin add cordova-plugin-splashscreen" -->
+        <splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
+        <splash src="res/screen/android/splash-port-hdpi.png" density="port-hdpi"/>
+        <splash src="res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>
+        <splash src="res/screen/android/splash-port-xxhdpi.png" density="port-xxhdpi"/>
+        <splash src="res/screen/android/splash-port-xxxhdpi.png" density="port-xxxhdpi"/>
+    </platform>
+
+    <!-- target is specific to the built iOS app -->
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+
+    <!-- Set the duration time -->
+    <preference name="SplashScreenDelay" value="5000" />
+</widget>

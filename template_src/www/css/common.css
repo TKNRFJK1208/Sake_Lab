@@ -1,0 +1,312 @@
+/********** INDEX PAGE CLASSES ********/
+.content-item {
+  display: flex;
+  margin: 15px;
+  align-items: center;
+}
+
+/* home header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: transparent;
+}
+
+.header .center {
+  font-size: 1rem;
+  text-transform: uppercase;
+  position: relative;
+  color: #fff;
+  font-weight: 400;
+}
+
+/* banner section */
+.bnr {
+  background-image: url('../img/sake.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  text-align: center;
+  margin: 0 auto;
+  justify-content: center;
+  display: grid;
+}
+
+.bnr h1 {
+  top: 45%;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 700;
+  position: relative;
+  color: #ffffff;
+}
+
+.bnr .auth-container {
+  height: 100vh;
+  padding-top: 250px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.bnr h2 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bnr form {
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bnr .auth-form-item {
+  padding: 30px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.bnr label {
+  font-size: 1.3rem;
+  padding-bottom: 15px;
+  color: #222;
+  font-weight: 500;
+}
+
+.bnr .auth-form-item input {
+  display: flex;
+  height: 40px;
+  width: 250px;
+  font-size: 1.5rem;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid #c0c0c0;
+  color: var(--text-color);
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.bnr .cta {
+  display: inline-block;
+  padding: 5px 20px;
+  color: #c0c0c0;
+  background-color: transparent;
+  border: 5px solid #222;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  transition: 0.3s ease;
+  transition-property: background-color, color;
+  text-decoration: none;
+  margin-top: 50px;
+  min-width: 120px;
+}
+
+.bnr .cta:hover {
+  color: #fff;
+  background-color: cadetblue;
+  border: 2px solid #fff;
+}
+
+.page-title {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 600;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: lightslategray;
+  padding-bottom: 10px;
+}
+
+/* Home */
+.ons-carousel {
+  height: calc(300 * (100vw / 500));
+  margin: 15px 0px;
+}
+
+.item-caro-image {
+  width: 100%;
+  border-radius: 10%;
+}
+
+.title {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 30px 0 0;
+}
+
+.item-price {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  padding-top: 10px;
+}
+
+/* Home List */
+.item-list-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-areas: 'thumb copy btn';
+  align-items: center;
+}
+
+.item-list-left {
+  grid-area: thumb;
+}
+
+.item-list-mid {
+  grid-area: copy;
+  padding: 20px 0 0 10px;
+}
+
+.item-list-right {
+  grid-area: btn;
+  align-self: center;
+  justify-self: center;
+}
+
+img.item-list-thumb {
+  width: 100%;
+  border-radius: 15%;
+}
+
+.item-list-heading {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.item-list-subhead {
+  font-size: 1em;
+  padding-top: 20px;
+}
+
+/* Item Detail */
+#item-detail .list-item__center {
+  justify-content: center;
+}
+
+.item-detail-content .item-list-heading {
+  padding: 10px 50px;
+}
+
+.item-detail-content .item-list-subhead {
+  font-size: 1em;
+  padding-left: 20px;
+}
+
+.item-detail-content ons-fab {
+  margin: 20px;
+}
+
+/* Wishlist */
+.wishlist {
+  background-color: goldenrod;
+}
+
+#my-wishlist {
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+  flex-flow: wrap;
+}
+
+.sake-box {
+  justify-content: center;
+  flex-flow: nowrap;
+  border: 1px solid black;
+  box-sizing: border-box;
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+}
+
+.sake-box .sake-name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.fav-box {
+  margin-top: 10px;
+}
+
+.sake-box img {
+  width: 100%;
+}
+
+/* Setting */
+.account-info {
+  text-align: center;
+  background-color: cadetblue;
+}
+
+.account-info p {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.setting-info {
+  justify-content: center;
+  background-color: coral;
+}
+
+.setting-info ul {
+  display: grid;
+  grid-template-columns: repeat(3, calc(100% / 3));
+}
+
+.flex {
+  justify-content: center;
+  text-align: center;
+}
+
+.setting-info ul {
+  padding-right: 40px;
+}
+
+.setting-info ul li {
+  list-style: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.item-icon {
+  padding: 20px 0;
+}
+
+.setting-list {
+  text-align: center;
+}
+
+.setting-list h2 {
+  font-size: 1rem;
+  color: #4383e4;
+  margin-top: 20px;
+}
+
+.setting-list p {
+  margin-bottom: 2rem;
+}
+
+.interest-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 75px;
+  grid-row-gap: 15px;
+}
+
+.save-btn {
+  text-align: center;
+}

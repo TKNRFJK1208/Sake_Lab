@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" href="./lib/onsenui/css/onsenui.css">        
+        <link rel="stylesheet" href="./lib/onsenui/css/onsen-css-components.css">
+        <script src="./lib/onsenui/js/onsenui.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <title>SAKE LAB</title>
+    </head>
+    <body>
+        <ons-navigator id="myNavigator" page="main-temp">
+            <ons-page id="root-page">
+                <ons-tabbar swipeable position="bottom">
+                    <ons-tab page="home-temp" label="Home" icon="md-home" active></ons-tab>
+                    <ons-tab page="wishlist-temp" label="Wishlist" icon="md-book"></ons-tab>
+                    <ons-tab page="settings-temp" label="Settings" icon="md-settings"></ons-tab>
+                </ons-tabbar>
+            </ons-page>    
+        </ons-navigator>
+        <!-- homepage -->
+        <template id="home-temp">
+            <ons-page id="home-page">
+                <ons-card class="home-carousel" style="background-color:burlywood; border-radius: 20px;">
+                    <div class="page-title" style="color:#000;">New Seasonal Item</div>
+                    <!-- carousel image-->
+                    <ons-carousel fullscreen swipeable auto-scroll overscrollable id="carousel">
+                        <ons-carousel-item>
+                            <img class="item-caro-image" src="./img/Sake/sake0.jpeg">
+                            <div class="title">TOMIO ZENRYO YAMADANISHIKI</div>
+                            <div class="content">
+                                <div class="item-price">$119.00</div>
+                            </div>
+                        </ons-carousel-item>
+                        <ons-carousel-item>
+                            <img class="item-caro-image" src="./img/Sake/sake1.jpeg">
+                            <div class="title">YUKI MANMAN AGED 5 YEARS</div>
+                            <div class="content">
+                                <div class="item-price">$89.00</div>
+                            </div>
+                        </ons-carousel-item>
+                        <ons-carousel-item>
+                            <img class="item-caro-image" src="./img/Sake/sake2.jpeg">
+                            <div class="title">DEWA SANSAN</div>
+                            <div class="content">
+                                <div class="item-price">$99.00</div>
+                            </div>
+                        </ons-carousel-item>
+                      </ons-carousel>
+                </ons-card>
+                <ons-list id="item-list"></ons-list>
+            </ons-page>
+        </template>
+        
+        <!-- item detail page -->
+        <template id="item-detail-temp">
+            <ons-page id="item-detail-page">
+                <ons-toolbar>
+                    <div class="left"><ons-back-button></ons-back-button></div>
+                    <div class="center title"></div>
+                </ons-toolbar>
+                <!-- Programatically set -->
+                <ons-list id="item-detail"></ons-list>
+            </ons-page>
+        </template>
+
+        <!-- wishlist template page -->
+        <template id="wishlist-temp">
+            <ons-page id="wishlist-page" >
+                <ons-card class="wishlist">
+                    <h1 class="page-title" style="color:#000;">My Sake List</h1>
+                    <ons-list id="my-wishlist"></ons-list>
+                </ons-card>
+            </ons-page>
+        </template>
+
+        <!-- settings page -->
+        <template id="settings-temp">
+            <ons-page id="settings-page">
+                <ons-card class="setting-info">
+                    <ul>
+                        <div class="flex">
+                            <li>Cash</li>
+                            <ons-icon class="item-icon" id="booking-btn" size="20px" icon="fa-dollar-sign"></ons-icon>
+                        </div>
+                        <div class="flex">
+                            <li>Point</li>
+                            <ons-icon class="item-icon" id="booking-btn" size="20px" icon="fa-coins"></ons-icon>
+                        </div>
+                        <div class="flex">
+                            <li>Coupon</li>
+                            <ons-icon class="item-icon" id="booking-btn" size="20px" icon="fa-ticket-alt"></ons-icon>
+                        </div>
+                        <div class="flex">
+                            <li>Library</li>
+                            <ons-icon class="item-icon" id="booking-btn" size="20px" icon="fa-book-open"></ons-icon>
+                        </div>
+                        <div class="flex">
+                            <li>Cart</li>
+                            <ons-icon class="item-icon" id="booking-btn" size="20px" icon="fa-cart-plus"></ons-icon>
+                        </div>
+                        <div class="flex">
+                            <li>Wishlist</li>
+                            <ons-icon class="item-icon" id="booking-btn" size="20px" icon="fa-heart"></ons-icon>
+                        </div>
+                    </ul>
+                </ons-card>
+                <ons-card>
+                    <ons-list>
+                        <label for="categoryList">Main Settings</label>
+                        <ons-list-header>Functions</ons-list-header>
+                        <ons-list-item>
+                            <div class="center">Push Notification</div>
+                            <div class="right"><ons-switch></ons-switch></div>
+                          </ons-list-item>
+                          <ons-list-item>
+                            <div class="center">Hide Item Image</div>
+                            <div class="right"><ons-switch></ons-switch></div>
+                          </ons-list-item>
+                          <ons-list-header>Appearance</ons-list-header>
+                        <ons-list-item>
+                            <div class="center">Sync Item From Last Visit</div>
+                            <div class="right"><ons-switch></ons-switch></div>
+                          </ons-list-item>
+                          <ons-list-item>
+                            <div class="center">Suggst New Item</div>
+                            <div class="right"><ons-switch></ons-switch></div>
+                          </ons-list-item>
+                          <ons-list-item>
+                            <div class="center">Custom Font</div>
+                            <div class="right"><ons-switch></ons-switch></div>
+                          </ons-list-item>
+                    </ons-list>
+                </ons-card>
+                <ons-card>
+                    <ons-list>
+                        <label for="categoryList">Selected Categories</label>
+                        <ons-list id=categoryList></ons-list>
+                    </ons-list>
+                </ons-card>
+
+                <!-- space for fab -->
+                <div style="height: 50px;"></div>
+                <div class="save-btn">
+                    <ons-button onclick="savePref()">Save</ons-button>
+                </div>
+            </ons-page>
+        </template>
+
+        <!-- ******************** spinner modal ******************** -->
+        <ons-modal id="spinner-modal">
+            <div style="margin: auto;">
+                <ons-icon icon="md-spinner" size="100px" spin></ons-icon>              
+            </div>
+        </ons-modal>
+
+        <!-- ******************** SCRIPT BLOCKS ******************** -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="./js/sakelist.js"></script>
+
+        <!-- ******************** Main JS Code ******************** -->
+        <script>
+
+            var currSetting; // global setting variable
+
+            document.addEventListener('init', function(event) {
+                var page = event.target;
+                // Set each function to each page
+                if (page.id === 'home-page') {
+                    if (currSetting == null){
+                        getSettings();
+                    }
+                    loadHomeList(page);
+                }
+                if (page.id === 'wishlist-page') {
+                    loadWishlist(page);
+                }
+                if (page.id === 'item-detail-page'){
+                    loadItemDetail(page); 
+                }
+                if(page.id === 'settings-page'){                    
+                    setPrefFields();
+                }
+            });
+
+            //  ******* Basic function *********************************************
+            // Back button 
+            function goBack(){
+                document.querySelector('#myNavigator').popPage();
+            }
+
+            // Toast for added to cart
+            var addCart = function() {
+                ons.notification.toast('Added to your cart!', {
+                    timeout: 2000
+                });
+            };
+
+            // Fired by each button in the list
+            function pushItemDetail(rID){
+
+                var currItem = sakeSet[Number.parseInt(rID)];
+
+                document.querySelector('#myNavigator').pushPage('item-detail-temp', {data: {cItem: currItem}});
+            }
+
+            function isInList(checkId, favList){
+                for(let i = 0; i < favList.length; i++){
+                    if(favList[i] === checkId){
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            //  ******* Home page *********************************************
+            function getSettings(){
+                currSetting = JSON.parse(window.localStorage.getItem('settingData'));
+
+                if(currSetting === null){
+                    // Default
+                    currSetting = {
+                        categories: [
+                            getCatById(0),
+                            getCatById(1),
+                            getCatById(2)
+                        ]
+                    };
+
+                    window.localStorage.setItem('settingData', JSON.stringify(currSetting));
+                }
+            }
+
+            function getCatById(catId){
+                var retSake = null;
+                retSake = catSet.find(function(a){
+                return a.id === catId;
+                });
+                return retSake;
+            }
+
+            function populateList(results) {
+
+                var mySakeList = document.getElementById('item-list');
+
+                var sake = results.sakes;
+
+                // console.log(currSetting.categories)
+                const selecedCat = currSetting.categories.map(obj => obj.id)
+
+                const id = sake.map(obj => obj.id);
+                const name = sake.map(obj => obj.name);
+                const cat = sake.map(obj => obj.cat);
+                const catId = Number.parseInt(sake.map(obj => obj.catId));
+                const active = sake.map(obj => obj.active);
+                const price = sake.map(obj => obj.price);
+                const keyImage = sake.map(obj => obj.keyImage);
+                const description = sake.map(obj => obj.description);
+
+                if(selecedCat.includes(catId)) {
+                    mySakeList.appendChild(
+                        ons.createElement(
+                            '<ons-list-item>' + 
+                            '<div class="item-list-item">' + 
+                            '<div class="item-list-left">' + 
+                            '<img class="item-list-thumb" src="./img/Sake/' + keyImage + '">' +
+                            '</div>' +
+                            '<div class="item-list-mid">' +
+                            '<div class="item-list-heading">' + name + '</div>' +
+                            '<div class="item-list-heading">' + cat + '</div>' +
+                            '<div class="item-list-heading">' + price + '</div>' +
+                            '<div class="item-list-subhead">' + description + '</div>' + 
+                            '</div>' +
+                            '<div class="item-list-right">' +
+                                '<ons-button onclick="pushItemDetail(' + (id-1) + ')" ' + (!active ? 'disabled' : '') + ' icon="md-caret-right"></ons-button>' +
+                                '<ons-button onclick="addToWishlist(' + (id-1) + ')" ' + (!active ? 'disabled' : '') + ' icon="md-favorite" style="padding;left:5px;"></ons-button>' +
+                            '</div></div></ons-list-item>'
+                        )
+                    );
+                // basic products view (in the case that any category is NOT selected)
+                } else if (currSetting.categories.length === 0){
+                    for(let i = 0; i < sakeSet.length; i++){
+                        mySakeList.appendChild(
+                            ons.createElement(
+                                '<ons-list-item>' + 
+                                '<div class="item-list-item">' + 
+                                '<div class="item-list-left">' + 
+                                '<img class="item-list-thumb" src="./img/Sake/' + sakeSet[i].keyImage + '">' +
+                                '</div>' +
+                                '<div class="item-list-mid">' +
+                                '<div class="item-list-heading">' + sakeSet[i].name + '</div>' +
+                                '<div class="item-list-heading">' + sakeSet[i].price + '</div>' +
+                                '<div class="item-list-subhead">' + sakeSet[i].cat + '</div>' +
+                                '<div class="item-list-subhead">' + sakeSet[i].desc + '</div>' + 
+                                '</div>' +
+                                '<div class="item-list-right">' +
+                                    '<ons-button onclick="pushItemDetail(' + (id-1) + ')" ' + (!active ? 'disabled' : '') + ' icon="md-caret-right"></ons-button>' +
+                                    '<ons-button onclick="addToWishlist(' + (id-1) + ')" ' + (!active ? 'disabled' : '') + ' icon="md-favorite" style="padding;left:5px;"></ons-button>' +
+                                '</div>' +
+                                '</div></ons-list-item>'
+                            )
+                        );
+                    }
+                }
+            }
+
+            function loadHomeList(page){
+
+                // add items as list ordinally
+                for(let i = 1; i < sakeSet.length+1; i++){
+
+                    var url = "http://localhost:8888/api/sakes/read.php?id=" + i;
+
+                    // show spinner 
+                    var spinnerModal = document.querySelector('#spinner-modal');
+                    spinnerModal.show();
+
+                    $.ajax(url)
+                    .done(function (jsonData) {
+                        // pass the result to populate the list 
+                        populateList(jsonData)
+                    })
+                    .fail(function (xhr, status, error) {
+                        console.log('error:' + xhr.status);
+                        // NOTE: normally we'd add some error handlers here 
+                    })
+                    .always(function () {
+                        // done or fail we still hide the spinner 
+                        spinnerModal.hide();
+                    })
+                }
+            }
+
+            function getCurrentFavList(){
+                // get the current list and return it as an array
+
+                var favList = window.localStorage.getItem('sakeFavorites');
+
+                if(favList === null){
+                    // if favlist is null it's never been added so init as an array
+                    favList = [];
+                }
+                else{
+                    // otherwise you need to parse as it's a string at this point
+                    favList = JSON.parse(favList);
+                }
+
+                return favList;
+            }
+
+            function addToWishlist(id){
+
+                // get LocalStrage
+                var favList = getCurrentFavList();
+
+                // check to see if alrady in list
+                if(!isInList(id, favList)){
+                    favList.push(id);
+                    console.log('added to fav!');
+                } else {
+                    console.log('already in fav!');
+                }
+
+                // resave list
+                window.localStorage.setItem('sakeFavorites', JSON.stringify(favList));
+
+                // back to the previous page and go to the wishlist
+                goBack()
+                document.querySelector('ons-tabbar').setActiveTab(1, {callback: function(){loadWishlist();}}); 
+
+            }
+            //  ******* Item detail *******************************************
+
+            function loadItemDetail(currPage){
+
+                var itemDetail = document.getElementById('item-detail')
+
+                // there is only one title 
+                currPage.querySelector('.title').innerHTML = currPage.data.cItem.name;
+
+                // add items as list ordinally
+                itemDetail.appendChild(
+                    ons.createElement(
+                        '<ons-list-item class="item-detail-content">' +
+                            '<img class="item-list-thumb" src="./img/Sake/' + currPage.data.cItem.keyImage + '">' +
+                            '<div class="item-list-heading">' + currPage.data.cItem.price + '</div>' +
+                            '<p class="item-list-heading">' + currPage.data.cItem.desc + '</p>' +
+                            '<ons-fab>' +
+                            '<a class="cart-btn" onclick="addCart()"><ons-icon icon="fa-cart-plus"></ons-icon></a>' +
+                            '</ons-fab>' +
+                            '<ons-fab>' +
+                            '<a class="cart-btn" onclick="addToWishlist(' + currPage.data.cItem.id + ')"><ons-icon icon="fa-heart"></ons-icon></a>' +
+                            '</ons-fab>' +
+                        '</ons-list-item>'
+                    )
+                );
+            }
+
+            //  ******* Wishlist page ****************************************
+            function loadWishlist(page) {
+
+                var sakeContainer = document.getElementById('my-wishlist');
+
+                // clear it for refreshes
+                sakeContainer.querySelectorAll('.sake-box').forEach(n => n.remove());
+
+                var favList = getCurrentFavList();
+
+                if(favList.length > 0){
+                    // add items as list ordinally
+                    for(let i = 0; i < sakeSet.length; i++){
+
+                        if(isInList(sakeSet[i].id, favList)){
+                            var sakeBox = document.createElement('div');
+                            sakeBox.classList.add('sake-box');
+
+                            var sakeImg = document.createElement('img');
+                            sakeImg.src = './img/Sake/' + sakeSet[i].keyImage;
+                            sakeBox.appendChild(sakeImg);
+
+                            var sakeName = document.createElement('div');
+                            sakeName.innerText = sakeSet[i].name;
+                            sakeName.classList.add('sake-name');
+                            sakeBox.appendChild(sakeName);
+
+                            var sakePrice = document.createElement('div');
+                            sakePrice.innerText = sakeSet[i].price;
+                            sakeBox.appendChild(sakePrice);
+
+                            var sakeCat = document.createElement('div');
+                            sakeCat.innerText = sakeSet[i].cat;
+                            sakeBox.appendChild(sakeCat);
+
+                            var sakeDesc = document.createElement('div');
+                            sakeDesc.innerText = sakeSet[i].desc;
+                            sakeBox.appendChild(sakeDesc);
+
+                            var favBox = document.createElement('div');
+                            favBox.classList.add('fav-box');
+
+                            var favBtn = document.createElement('button');
+                            favBtn.innerText = 'Remove';
+                            favBtn.setAttribute('sake-id', sakeSet[i].id);
+                            favBtn.onclick = function(){ removeFromWishlist(sakeSet[i].id); };
+
+                            favBox.appendChild(favBtn);
+                            sakeBox.appendChild(favBox);
+
+                            sakeContainer.appendChild(sakeBox);
+                        } 
+                    }
+                } else {
+                    // no favorites give a message
+                    var emptyBox = document.createElement('div');
+                    sakeContainer.appendChild(emptyBox);
+                }
+            }
+
+            function removeFromWishlist(id){
+
+                // from LocalStorage member
+                var favList = getCurrentFavList();
+
+                favList = favList.filter(function(cItem){
+                    return cItem !== id;
+                })
+
+                console.log(favList)
+
+                // resave list
+                window.localStorage.setItem('sakeFavorites', JSON.stringify(favList));
+
+                // reload list
+                loadWishlist();
+            }
+
+            //  ******* Setting page ****************************************
+            function savePref(){
+
+                const settingPage = document.getElementById('settings-page');
+
+                var catSwitchList = settingPage.querySelectorAll('.sake-switch');
+
+                // empty the array
+                currSetting.categories = [];
+
+                for(let i = 0; i < catSwitchList.length; i++){
+                    if(catSwitchList[i].checked){
+                        currSetting.categories.push(getCatById(Number.parseInt(catSwitchList[i].getAttribute('data-sake-id'))));
+                    }
+                }
+
+                // update the storage
+                window.localStorage.setItem('settingData', JSON.stringify(currSetting));
+
+                homeItemList = document.getElementById('item-list');
+                // clear previous list
+                homeItemList.querySelectorAll('ons-list-item').forEach(n => n.remove());
+
+                // navigate back to index 0 and refresh by the callback function
+                document.querySelector('ons-tabbar').setActiveTab(0, {callback: function(){loadHomeList();}}); 
+
+            }
+
+            function setPrefFields(){
+
+                const settingPage = document.getElementById('settings-page');
+
+                var myCategoryList = settingPage.querySelector('#categoryList');
+
+                for(let i = 0; i < catSet.length; i++){
+                    myCategoryList.appendChild(
+                        ons.createElement(
+                            '<ons-list-item tappable>' +
+                                '<div class="left"><label for="prefCat' + catSet[i].id + '">' + catSet[i].name + '</label></div>' +
+                                '<div class="right"><input type="checkbox" id="prefCat' + catSet[i].id + '" class="sake-switch" data-sake-id="'+ catSet[i].id +'"></input></div>' +
+                            '</ons-list-item>'
+                        )
+                    )
+                }
+
+            }
+        
+        </script>
+    </body>
+</html>
